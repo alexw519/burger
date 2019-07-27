@@ -1,40 +1,25 @@
 //Dependencies
 var express = require("express");
-var exphbr = require("express-handlebars");
-var mysql = require("mysql");
+var exphbs = require("express-handlebars");
 
-//Setting Up Port And Handlebars
+//Setting Up Port
 var app = express();
 var PORT = proecess.env.PORT || 5000;
+
+//Middlewear
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//Setting Up Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-//Setting Up mySQL Connection
-var connection = mysql.createConnection(
-    {
-        host: "127.0.0.1",
-        port: 3306,
-        username: "root",
-        password: "",
-        database: "burgers_db"
-    })
+//Connecting To The Controller
+var routes = require("./controllers/burgers_controller.js");
+app.use(routes);
 
-connection.connect(function(error)
-{
-    if (error) throw error;
-    console.log("Connection Successful!");
-})
-
-app.get("/", function()
-{
-    console.log("Getting Info");
-})
-
-app.post("/", function()
-{})
-
+//Starting The Server
 app.listen(PORT, function()
 {
     console.log("Listening on port " + PORT + "...");

@@ -4,7 +4,7 @@ var exphbs = require("express-handlebars");
 
 //Setting Up Port
 var app = express();
-var PORT = proecess.env.PORT || 5000;
+var PORT = process.env.PORT || 5000;
 
 //Middlewear
 app.use(express.static("public"));

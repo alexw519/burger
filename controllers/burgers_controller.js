@@ -8,19 +8,26 @@ router.get("/", function(request, response)
     burger.all(function(data)
     {
         var burgerObject =
-        {
-            burgers: data
-        };
-        console.log(burgerObject);
+        {   burgers: data   };
         response.render("index", burgerObject);
     })
-    console.log("-------------------------------------\nburgers_controllers.js file\n-------------------------------------\n");
 });
 
 router.post("/api/burger", function(request, response)
-{});
+{
+    burger.create("burger_name", request.body.burger_name, function(data){})
+});
 
 router.put("/api/burger/:id", function(request, response)
-{});
+{
+    var conditon = request.params.id;
+    burger.update("devoured", conditon, function(data)
+    {
+        if (data.changedRows == 0)
+            return response.status(404);
+        else
+            return response.status(200).end();
+    })
+});
 
 module.exports = router;

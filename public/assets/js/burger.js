@@ -19,7 +19,7 @@ $(document).ready()
             {
                 type: "POST",
                 data: newBurger
-            }).then(function()
+            }).then(function(data)
             {
                 console.log("Burger Added!");
                 location.reload();

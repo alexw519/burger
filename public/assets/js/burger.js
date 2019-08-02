@@ -22,9 +22,10 @@ $(document).ready()
             }).then(function(data)
             {
                 console.log("Burger Added!");
-                location.reload();
-            })
-        })
+                // location.reload();
+                location.href("/");
+            });
+        });
 
         //When Any Of The Devour Buttons Are Clicked, It Will Update The Burger To devoured = true
         $(".devour").on("click", function(event)

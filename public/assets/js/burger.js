@@ -23,7 +23,7 @@ $(document).ready()
             {
                 console.log("Burger Added!");
                 // location.reload();
-                location.href("/");
+                location.href = "/";
             });
         });
 

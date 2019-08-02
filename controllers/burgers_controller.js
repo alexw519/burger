@@ -21,7 +21,9 @@ router.get("/", function(request, response)
 router.post("/api/burger", function(request, response)
 {
     //Sends The Burger Name And Info To The orm.js File
-    burger.create("burger_name", request.body.burger_name, function(data){})
+    burger.create("burger_name", request.body.burger_name, function(data){
+        response.status(200).end()
+    })
 });
 
 //Updates A Burger Based On The ID, And If It's Doesn't Exist Will Print Error

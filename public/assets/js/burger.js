@@ -13,7 +13,7 @@ $(document).ready()
             {
                 burger_name: $("#newName").val().trim()
             };
-
+            
             //Routes To The API Burger In The burgers_controllers File Using Ajax
             $.ajax("/api/burger",
             {

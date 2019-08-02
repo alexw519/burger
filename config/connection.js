@@ -7,10 +7,11 @@ var connection = mysql.createConnection(
         host: "127.0.0.1",
         port: 3306,
         user: "root",
-        password: "Yumewaryuusei27!",
+        password: "",
         database: "burgers_db"
     })
 
+//Connecting To The Database
 connection.connect(function(error)
 {
     if (error) throw error;

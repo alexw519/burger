@@ -4,9 +4,12 @@
     <div class = "col-md-1"></div>    
     <div class = "col-md-3">
         <h2>To Be Devoured...</h2>
+
+        {{!-- Grabs All Of The 'Burgers' Not Devoured, And Pushes Each One Into The List Followed By A Button --}}
         <ul>
             {{#each burgers}}
                 {{#unless devoured}}
+                    {{!-- Pritns The burger_name From The Burger Object --}}
                     {{burger_name}}
                     <button class = "devour btn btn-outline-dark" data-id = "{{id}}">Devour!</button>
                     <br>
@@ -21,6 +24,8 @@
 
     <div class = "col-md-3">
         <h2>Devoured!</h2>
+        {{!-- Grabs All Of The 'Burgers' Devoured, And Pushes Each One Into The List --}}
+
         <ul>
             {{#each burgers}}
                 {{#if devoured}}
@@ -32,6 +37,7 @@
     </div>
 </div>
 
+{{!-- Form That Allows The User To Be Able To Add A New Burger --}}
 <form class = "create-form text-center">
     <div class = "form-group">
         <input type="text" id = "newName" placeholder="Enter Burger Name">

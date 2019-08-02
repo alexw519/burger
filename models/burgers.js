@@ -1,5 +1,6 @@
 var orm = require("../config/orm.js");
 
+//Every Function Calls The Same Function, But In The orm.js File
 var burger =
 {
     all: function(callBack)
